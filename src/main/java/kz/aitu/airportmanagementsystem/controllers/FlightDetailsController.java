@@ -57,4 +57,13 @@ public class FlightDetailsController {
 
         return new ResponseEntity<>(updatedSeat, HttpStatus.OK);
     }
+    //inserting flight details into database through validation of data using post method
+    @PostMapping("/admin/create")
+    public ResponseEntity<FlightDetails> CreateFlightDetails(@Valid @RequestBody FlightDetailsDto flightDetailsDto){
+        FlightDetails createdflightDetails = service.CreateFlightDetails(flightDetailsDto.flightDetailsTo());
+        if(createdflightDetails == null)
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+
+        return new ResponseEntity<>(createdflightDetails, HttpStatus.CREATED);
+    }
 }
