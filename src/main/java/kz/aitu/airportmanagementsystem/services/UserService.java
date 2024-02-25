@@ -14,7 +14,7 @@ public class UserService implements UserServiceInterface {
     public UserService(UserRepositoryInterface repositoryInterface) {
         this.repositoryInterface = repositoryInterface;
     }
-
+    // CRUD methods that overrides user interface
     @Override
     public List<User> getAll() {
         return repositoryInterface.findAll(Sort.by(Sort.Direction.ASC, "passengerId"));

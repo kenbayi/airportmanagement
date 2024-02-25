@@ -9,6 +9,7 @@ import lombok.experimental.Accessors;
 @Table(name = "passenger")
 @Accessors(chain = true)
 public class User {
+    // user model from database table
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int passengerId;
