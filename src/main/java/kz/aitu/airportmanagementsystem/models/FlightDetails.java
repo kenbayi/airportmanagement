@@ -9,6 +9,7 @@ import java.sql.Timestamp;
 @Entity
 @Table(name = "flightdetails")
 @Accessors(chain = true)
+//Flight details from table in database
 public class FlightDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

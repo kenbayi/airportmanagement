@@ -19,6 +19,7 @@ public class FlightDetailsController {
         this.service = service;
     }
 
+    // Method to get all flights (accessible to admin)
     @GetMapping("/admin/")
     public ResponseEntity<?> getAllFlights(){
         List<FlightDetails> flightDetailsList = service.getAllFlights();
@@ -27,7 +28,8 @@ public class FlightDetailsController {
         }
         return ResponseEntity.ok(flightDetailsList);
     }
-    
+
+    // Method to find flight details by flight number (accessible to admin)
     @GetMapping("/admin/find/{flight_number}")
     public ResponseEntity<?> findFlightDetailsByFlightNumber(@PathVariable("flight_number") String flightNumber) {
         List<FlightDetails> flightDetails = service.findFlightDetailsByFlightNumberIgnoreCase(flightNumber);
@@ -39,6 +41,7 @@ public class FlightDetailsController {
         }
     }
 
+    // Method to delete flight details by flight number (accessible to admin)
     @DeleteMapping("/admin/delete/{flight_number}")
     public ResponseEntity<?> deleteFlightDetailsByFlightNumber(@PathVariable("flight_number") String flightNumber) {
         Long deletedRecord = service.deleteFlightDetailsByFlightNumberIgnoreCase(flightNumber);
@@ -49,6 +52,7 @@ public class FlightDetailsController {
         }
     }
 
+    // Method to change the number of seats for a flight (accessible to admin)
     @PostMapping("/admin/changeSeat/{flight_id}/{seats}")
     public ResponseEntity<?> ChangeSeats(@PathVariable("flight_id") Long flightId, @PathVariable("seats") int seats){
         FlightDetails updatedSeat = service.changeSeats(flightId, seats);
