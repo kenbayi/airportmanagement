@@ -7,6 +7,7 @@ import lombok.Data;
 import jakarta.validation.constraints.*;
 @Data
 public class UserDto {
+    // user model's data transfer object for validation
     @NotEmpty(message = "First name is required")
     private String firstName;
     @NotEmpty(message = "Last name is required")
@@ -19,6 +20,7 @@ public class UserDto {
     @Min(value = 1, message = "Age must be greater than 0")
     private int age;
 
+    //to send data
     public User toUser() {
         return new User()
                 .setFirstName(firstName)
