@@ -9,9 +9,8 @@ import kz.aitu.airportmanagementsystem.models.FlightDetails;
 import lombok.Data;
 
 import java.sql.Timestamp;
-
+@ArrivalAfterDeparture
 @Data
-@ArrivalAfterDeparture()
 public class FlightDetailsDto {
     // flight details model's data transfer object for validation.
     @NotEmpty(message = "flight number is required")
@@ -24,14 +23,11 @@ public class FlightDetailsDto {
     private String destinationLocation;
 
     @Future
-    @Column(name = "departure_time", nullable = false)
     private Timestamp departureTime;
 
-    @Column(name = "arrival_time", nullable = false)
     private Timestamp arrivalTime;
 
     @Positive(message = "positive integer")
-    @Column(name = "available_seats", nullable = false)
     private int availableSeats;
 
     //to send data when saving
