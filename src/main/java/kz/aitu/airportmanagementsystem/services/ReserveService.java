@@ -64,4 +64,3 @@ public class ReserveService implements ReserveServiceInterface {
         return repositoryInterface.findByReserveId(reserveId);
     }
 }
-
