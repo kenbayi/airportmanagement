@@ -25,4 +25,3 @@ public class Reserve {
     @Column(name = "reserve_date", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP", insertable = false)
     private Timestamp reserveDate; // Date and time when the reservation was made
 }
-
